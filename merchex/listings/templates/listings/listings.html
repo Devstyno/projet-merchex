@@ -1,21 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'listings/base.html' %}
+{% block content %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Merchex: Annonces</title>
-</head>
+<h1>Annonces</h1>
+<p>Bientot, nous aurons :
+<p>
+<ul>
+    {% for listing in listings %}
+        <li>{{ listing.title }}</li>
+    {% endfor %}
+</ul>
 
-<body>
-    <h1>Annonces</h1>
-    <p>Bientot, nous aurons :
-    <p>
-    <ul>
-        {% for listing in listings %}
-            <li>{{ listing.title }}</li>
-        {% endfor %}
-    </ul>
-</body>
-
-</html>
+{% endblock %}

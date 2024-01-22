@@ -1,31 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'listings/base.html' %}
+{% block content %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Merchex</title>
-</head>
+<h1>Discover my groups</h1>
+<p>
+    J'ai
+    {% if bands|length < 5 %}
+        peu de
+    {% elif bands|length < 10 %}
+        quelques
+    {% else %}
+        beaucoup de
+    {% endif %}
+    groupes préférés.
+</p>
+<p>Ce sont :</p>
+<ul>
+    {% for band in bands %}
+        <li>
+            {{ band.name | upper }}
+        </li>
+    {% endfor %}
+</ul>
 
-<body>
-    <h1>Discover my groups</h1>
-    <p>
-        J'ai
-        {% if bands|length < 5 %}
-            peu de
-        {% elif bands|length < 10 %}
-            quelques
-        {% else %}
-            beaucoup de
-        {% endif %}
-        groupes préférés.
-    </p>
-    <p>Ce sont :</p>
-    <ul>
-        {% for band in bands %}
-            <li>{{ band.name | upper }}</li>
-        {% endfor %}
-    </ul>
-</body>
-
-</html>
+{% endblock %}
