@@ -1,8 +1,18 @@
-<h1>Annonces</h1>
-<p>Bientot, nous aurons :<p>
-<ul>
-    <li>{listings[0].title}</li>
-    <li>{listings[1].title}</li>
-    <li>{listings[2].title}</li>
-    <li>{listings[3].title}</li>
-</ul>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Annonces</h1>
+    <p>Bientot, nous aurons :
+    <p>
+    <ul>
+        {% for listing in listings %}
+            <li>{{ listing.title }}</li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
