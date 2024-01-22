@@ -14,4 +14,4 @@ def about_us(request):
     return render(request, "listings/about_us.html")
 
 def contact_us(request):
-    return render(request, "contact_us.html")
+    return render(request, "listings/contact_us.html")
