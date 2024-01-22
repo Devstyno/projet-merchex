@@ -9,7 +9,15 @@
     <title>Merchex</title>
 </head>
 <body>
+    <header>
+
+    </header>
+
     {% block content %}
     {% endblock %}
+
+    <footer>
+        <p>Datetime: {% now 'd-m-y, h:i:s' %}</p>        
+    </footer>
 </body>
 </html>
