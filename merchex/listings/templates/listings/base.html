@@ -10,7 +10,12 @@
 </head>
 <body>
     <header>
-
+        <nav>
+            <a href="{% url 'bands' %}">Groupes</a>
+            <a href="{% url 'listings' %}">Annonces</a>
+            <a href="{% url 'about' %}">A propos</a>
+            <a href="{% url 'contact' %}">Nous contacter</a>
+        </nav>
     </header>
 
     {% block content %}
