@@ -7,7 +7,7 @@
         <li>
             <a href="{% url 'listing_details' listing.id %}">{{ listing.title | upper }}</a>
             -- <a href="{% url 'listing_update' listing.id %}"><button>Modifier</button></a>
-            <a href=""><button>Supprimer</button></a>
+            <a href="{% url 'listing_delete' listing.id %}"><button>Supprimer</button></a>
         </li>
     {% endfor %}
 </ul>
