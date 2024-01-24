@@ -16,6 +16,8 @@
     {% endif %}
 </ul>
 
+<a href="{% url 'listing_update' band.id %}">Mettre a jour l'annonce</a>
+
 <a href="{% url 'listings' %}">Retour a la liste des annonces</a>
 
 {% endblock %}

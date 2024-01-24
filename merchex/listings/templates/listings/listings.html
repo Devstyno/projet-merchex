@@ -6,6 +6,8 @@
     {% for listing in listings %}
         <li>
             <a href="{% url 'listing_details' listing.id %}">{{ listing.title | upper }}</a>
+            <button><a href="{% url 'listing_update' listing.id %}">Modifier</a></button>
+            <button><a href="">Supprimer</a></button>
         </li>
     {% endfor %}
 </ul>

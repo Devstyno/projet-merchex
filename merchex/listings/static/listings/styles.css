@@ -5,3 +5,7 @@
 .errorlist {
     margin-bottom: -10px
 }
+
+button > a {
+    text-decoration: none;
+}
