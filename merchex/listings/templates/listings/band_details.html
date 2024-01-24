@@ -26,7 +26,7 @@
         <h3>Liste des annonces apparentées</h3>
         <ul>
             {% for listing in band.listing_set.all %}
-                <li>{{ listing }}</li>
+                <li><a href="{% url 'listing_details' listing.id %}">{{ listing }}</a></li>
             {% endfor %}
         </ul>
     {% endif %}
