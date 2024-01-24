@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.core.mail import send_mail
 from listings.models import Band, Listing
+from listings.forms import ContactUsForm, BandForm
 
 def band_list(request):
     bands = Band.objects.all()
@@ -8,6 +10,19 @@ def band_list(request):
 def band_details(request, id):
     band = Band.objects.get(id=id)
     return render(request, "listings/band_details.html", {"band" : band})
+
+def band_is_created(request):
+    return render(request, 'listings/band_is_created.html')
+
+def band_creation(request):
+    if request.method == "POST":
+        form = BandForm(request.POST)
+        if form.is_valid():
+            band = form.save()
+            return redirect('band_details', band.id)
+    else:
+        form = BandForm()
+    return render(request, 'listings/band_creation.html', {'form' : form})
 
 def listings(request):
     listings = Listing.objects.all()
@@ -20,5 +35,20 @@ def listing_details(request, id):
 def about_us(request):
     return render(request, "listings/about_us.html")
 
+def email_sent(request):
+    return render(request, 'listings/email_sent.html')
+
 def contact_us(request):
-    return render(request, "listings/contact_us.html")
+    if request.method == "POST":
+        form = ContactUsForm(request.POST)
+        if form.is_valid():
+            send_mail(
+                subject=f"Message from {form.cleaned_data['name']} or 'anonyme' via Merchex Contact Us form",
+                message=form.cleaned_data["message"],
+                from_email=form.cleaned_data["email"],
+                recipient_list=["admin@merchex.xyz"]
+            )
+            return redirect('email_sent')
+    else:
+        form = ContactUsForm()
+    return render(request, "listings/contact_us.html", {"form" : form})

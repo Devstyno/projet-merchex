@@ -12,14 +12,28 @@
     {% endif %}
 </ul>
 
-<p>{{ band.biography }}</p>
+<div>
+    {% if band.biography %}
+        <p>
+            Biographie :<br>
+            {{ band.biography }}
+        </p>
+    {% endif %}
+</div>
+
+<div>
+    {% if band.listing_set.all %}
+        <h3>Liste des annonces apparentées</h3>
+        <ul>
+            {% for listing in band.listing_set.all %}
+                <li>{{ listing }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
 
 <p>
     <a href="{% url 'bands' %}">Retour a la liste des groupes</a><br>
-    Voir la liste des annonces apparentées
-    {% for listing in band.listing_set.all %}
-        <li>{{ listing }}</li>
-    {% endfor %}
 </p>
 
 {% endblock %}
