@@ -89,6 +89,7 @@ def listing_delete(request, id):
         return redirect('listings')
     return render(request, 'listings/listing_delete.html', {'listing' : listing})
 
+
 # vue about
 def about_us(request):
     return render(request, "listings/about_us.html")
