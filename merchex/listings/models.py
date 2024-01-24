@@ -9,6 +9,8 @@ class Band(models.Model):
         ALTERNATIVE_ROCK = "AR"
         RAP_FRANCAIS = "RF"
         GOSPEL = "G"
+        DRILL = "D"
+        RNB = "RnB"
 
     name = models.fields.CharField(max_length=100)
     genre = models.fields.CharField(choices = Genre.choices, max_length=5)
